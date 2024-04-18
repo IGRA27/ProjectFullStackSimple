@@ -1,20 +1,28 @@
 version: '3.8'
 services:
-  backend:
-    build: ./backend
-    ports:
-      - "5000:5000"
-    environment:
-      - MONGO_URI=mongodb://mongo:27017/mydatabase
-    depends_on:
-      - mongo
   frontend:
     build: ./frontend
     ports:
       - "80:80"
+    networks:
+      - fullstacknet
+
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    networks:
+      - fullstacknet
+
   mongo:
     image: mongo
-    ports:
-      - "27017:27017"
-    environment:
-      - MONGO_INITDB_DATABASE=mydatabase
+    volumes:
+      - mongodata:/data/db
+    networks:
+      - fullstacknet
+
+networks:
+  fullstacknet:
+
+volumes:
+  mongodata:

@@ -12,17 +12,16 @@ Este proyecto es una aplicación full stack simple que utiliza Flask como backen
 ## Estructura del proyecto
 
 ```plaintext
-/simple-flask-mongo-app
+ProjectFullStackSimple/
+|-- backend/
+|   |-- Dockerfile
+|   |-- app.py
+|   |-- requirements.txt
+|-- frontend/
+|   |-- Dockerfile
+|   |-- index.html
 |-- docker-compose.yml
-|-- app
-    |-- Dockerfile
-    |-- app.py
-    |-- requirements.txt
-    |-- templates
-        |-- index.html
-|-- mongo
-    |-- Dockerfile
-    |-- mongo-init.js
+
 
 
 
